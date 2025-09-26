@@ -71,8 +71,8 @@ class Estudiante(models.Model):
 
 ---
 
-## 4. Crear dos tablas adicionales en la app **estudiante**
-En el mismo archivo `models.py`, agrega:
+## PASO 4. Crear dos tablas adicionales en la app **estudiante**
+En el mismo archivo `models.py`, agrega y COMPLETA:
 ```python
 class Curso(models.Model):
     #Agrega nombre (CharField) y descripcion (TextField)
@@ -93,7 +93,7 @@ class Nota(models.Model):
 
 ---
 
-## 5. Crear dos apps adicionales
+## PASO 5. Crear dos apps adicionales
 
 ### 5.1 App **profesor**
 ```bash
@@ -139,7 +139,7 @@ class Materia(models.Model):
 
 ---
 
-## 6. Migraciones y base de datos
+## PASO 6. Migraciones y base de datos
 Ejecutar en la terminal:
 ```bash
 python manage.py makemigrations
@@ -148,7 +148,7 @@ python manage.py migrate
 
 ---
 
-## 7. Activar el panel de administración
+## PASO 7. Activar el panel de administración
 
 1. Crear un superusuario:
    ```bash
@@ -186,7 +186,7 @@ admin.site.register(Materia)
 
 ---
 
-## 8. Probar el proyecto
+## PASO 8. Probar el proyecto
 Iniciar el servidor, en la terminal:
 ```bash
 python manage.py runserver
