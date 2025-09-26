@@ -26,7 +26,9 @@ pip install django
 ## PASO 2. Crear un nuevo proyecto Django
 
 En terminal ejecuta:
-    django-admin startproject colegio .
+```bash
+django-admin startproject colegio .
+```
 
 
 📌 **Observaciones**:  
@@ -37,10 +39,13 @@ En terminal ejecuta:
 
 ## PASO 3. Crear la primera aplicación: **estudiante**
 En la terminal:
-    python manage.py startapp estudiante
+```bash
+python manage.py startapp estudiante
+```
 
 
-Registrar la app en `settings.py`  
+Luego en colegio/settings.py -> agregar en INSTALLED_APPS: 'estudiante' , 
+
 ```python
 INSTALLED_APPS = [
     ...,
@@ -49,7 +54,8 @@ INSTALLED_APPS = [
 ```
 
 ### Definir el modelo Estudiante
-En `estudiante/models.py`:
+En `estudiante/models.py` agrega:
+
 ```python
 from django.db import models
 
@@ -69,16 +75,16 @@ class Estudiante(models.Model):
 En el mismo archivo `models.py`, agrega:
 ```python
 class Curso(models.Model):
-    nombre = models.CharField(max_length=100)
-    descripcion = models.TextField()
+    #Agrega nombre (CharField) y descripcion (TextField)
 
     def __str__(self):
         return self.nombre
 
 
 class Nota(models.Model):
-    estudiante = models.ForeignKey(Estudiante, on_delete=models.CASCADE)
-    curso = models.ForeignKey(Curso, on_delete=models.CASCADE)
+    #completa la relacion (1:N) Estudiante y Curso usando ForeignKey
+    estudiante = "completa aqui"(Estudiante, on_delete=models.CASCADE)
+    curso = "completa aqui igual que el anterior"(Curso, on_delete=models.CASCADE)
     calificacion = models.DecimalField(max_digits=4, decimal_places=2)
 
     def __str__(self):
@@ -94,7 +100,8 @@ class Nota(models.Model):
 python manage.py startapp profesor
 ```
 
-En `settings.py` agrega `'profesor'`.  
+
+En `colegio/settings.py` -> agregar en INSTALLED_APPS: 'profesor' ,  
 
 En `profesor/models.py`:  
 ```python
@@ -116,7 +123,7 @@ class Profesor(models.Model):
 python manage.py startapp materia
 ```
 
-En `settings.py` agrega `'materia'`.  
+En `colegio/settings.py` -> agregar en INSTALLED_APPS: 'materia' ,
 
 En `materia/models.py`:  
 ```python
@@ -180,7 +187,7 @@ admin.site.register(Materia)
 ---
 
 ## 8. Probar el proyecto
-Iniciar el servidor:
+Iniciar el servidor, en la terminal:
 ```bash
 python manage.py runserver
 ```
